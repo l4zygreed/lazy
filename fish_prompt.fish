@@ -131,7 +131,19 @@ function fish_prompt -d "Write out the left prompt of the lazy theme"
     set f yellow
   end
 
+  set -l ps_yazi ""
+  if test "$YAZI_LEVEL" != ""
+    set b yellow
+    set ps_yazi (set_color -o $f -b $b)$delim
+    set f black
+    set ps_yazi $ps_yazi(set_color -o $f -b $b)
+
+    set ps_yazi $ps_yazi" "(string repeat \uf41c" " -n $YAZI_LEVEL)
+
+    set f yellow
+  end
+
   # Left Prompt
 
-  echo -n -s $ps_status $ps_pwd $ps_git $ps_ranger (set_color $f -b normal) $delim $colnormal ' '
+  echo -n -s $ps_status $ps_pwd $ps_git $ps_ranger $ps_yazi (set_color $f -b normal) $delim $colnormal ' '
 end
