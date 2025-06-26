@@ -4,7 +4,7 @@
 # Utils
 # ----------------------------------------------------------------------------
 
-set -g __lazy_display_rprompt 0
+# set -g __lazy_display_rprompt 0
 
 function toggle_right_prompt -d "Toggle the right prompt of the lazy theme"
   if test $__lazy_display_rprompt -eq 0
